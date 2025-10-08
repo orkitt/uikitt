@@ -1,5 +1,5 @@
 
-![Orkitt](https://github.com/orkitt/core/blob/main/images/brand_sm.png)
+![Orkitt](https://github.com/orkitt/core/blob/main/images/brand_sm.png?raw=true)
 
 # `orkitt_cli`
 
