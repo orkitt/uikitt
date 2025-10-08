@@ -1,0 +1,42 @@
+name: orkitt_cli
+description: A powerful Flutter CLI tool to scaffold Orkitt-style Flutter apps with pre-configured folder structure, packages, and bootstrap files.
+version: 1.0.0
+homepage: https://github.com/orkitt/core/orkitt_cli
+repository: https://github.com/orkitt/core/orkitt_cli
+issue_tracker: https://github.com/orkitt/core/orkitt_cli/issues
+documentation: https://github.com/orkitt/core/orkitt_cli#readme
+publish_to: https://pub.dev
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+
+# Dependencies for the CLI
+dependencies:
+  args: ^2.5.0           # For parsing CLI arguments
+  process_run: ^0.13.0   # For running shell commands
+  path: ^1.9.0           # For cross-platform path manipulation
+
+# Development dependencies
+dev_dependencies:
+  lints: ^2.0.0          # Recommended lints for Dart packages
+  test: ^1.24.0          # For writing tests
+
+# Executables for Dart CLI
+executables:
+  orkitt: orkitt_cli
+
+# Package metadata for pub.dev
+keywords:
+  - flutter
+  - cli
+  - scaffolding
+  - orkkit
+  - productivity
+  - app-generator
+  - flutter_cli
+  - code_generator
+
+# Licenses
+license: MIT
+
+# Optional description of your package features
+# README.md should include usage examples
