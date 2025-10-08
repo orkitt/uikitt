@@ -1,4 +1,5 @@
 
+![Orkitt](https://github.com/orkitt/core/blob/main/images/brand_sm.png)
 
 # `orkitt_cli`
 
@@ -11,14 +12,9 @@
 Activate globally via Dart:
 
 ```bash
-dart pub global activate --source path ./orkitt_cli
+dart pub global activate orkitt_cli
 ```
 
-> Make sure your Dart **global executables** folder is in your PATH:
-
-```bash
-export PATH="$PATH:$HOME/.pub-cache/bin"
-```
 
 ---
 
