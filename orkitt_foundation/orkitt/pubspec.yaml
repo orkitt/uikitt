@@ -1,0 +1,14 @@
+name: orkitt
+description: The complete Orkitt toolkit combining UI, utils, and framework tools.
+version: 1.0.0
+publish_to: "none" # or 'https://pub.dev' if you plan to publish it
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  orkitt_ui:
+    path: ../packages/orkitt_ui
+  orkitt_utils:
+    path: ../packages/orkitt_utils
+  orkitt_framework:
+    path: ../packages/orkitt_framework

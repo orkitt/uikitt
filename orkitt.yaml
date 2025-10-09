@@ -1,0 +1,4 @@
+name: orkitt_foundation
+packages:
+  - orkitt        # umbrella package
+  - packages    # all individual packages under this folder
