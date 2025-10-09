@@ -45,6 +45,46 @@ Every Orkitt product follows three guiding principles:
 
 ---
 
+## Workspace Commands
+
+Use the `orkitt.sh` script to manage all packages in your workspace.
+
+### Install dependencies for all packages
+```bash
+./orkitt.sh bootstrap
+````
+
+## Run Flutter analyzer for all packages
+
+```bash
+./orkitt.sh analyze
+```
+
+### Run tests for all packages
+
+```bash
+./orkitt.sh test
+```
+
+### Update version for all packages
+
+```bash
+./orkitt.sh version 1.0.0
+```
+
+### Dry-run publish all packages (sub-packages first, umbrella last)
+
+```bash
+./orkitt.sh pub-dry
+```
+
+### Publish all packages to pub.dev
+
+```bash
+./orkitt.sh pub
+```
+
+
 ## 🏗 Vision
 
 To make development **as expressive as creativity itself**, and to give every developer a platform that helps them think, build, and innovate without friction.
