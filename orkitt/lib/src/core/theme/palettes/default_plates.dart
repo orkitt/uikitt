@@ -63,10 +63,10 @@ class NeutralDarkColors extends BrandKolors {
 }
 
 /// ==============================
-/// ☀️ Soul Light Theme
+/// ☀️ Orkitt Light Theme
 /// ==============================
-class LightSoulColors extends BrandKolors {
-  const LightSoulColors();
+class LightOrkittColors extends BrandKolors {
+  const LightOrkittColors();
 
   @override
   Brightness get brightness => Brightness.light;
@@ -94,10 +94,10 @@ class LightSoulColors extends BrandKolors {
 }
 
 /// ==============================
-/// 🌙 Soul Dark Theme
+/// 🌙 Orkitt Dark Theme
 /// ==============================
-class DarkSoulColors extends BrandKolors {
-  const DarkSoulColors();
+class DarkOrkittColors extends BrandKolors {
+  const DarkOrkittColors();
 
   @override
   Brightness get brightness => Brightness.dark;

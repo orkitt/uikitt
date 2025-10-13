@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:orkitt/orkitt.dart';
 
 /// ==============================
-/// ☀️ Soul Light Theme
+/// ☀️ Orkitt Light Theme
 /// ==============================
 class AppLightColors extends BrandKolors {
   const AppLightColors();
@@ -33,7 +33,7 @@ class AppLightColors extends BrandKolors {
 }
 
 /// ==============================
-/// 🌙 Soul Dark Theme
+/// 🌙 Orkitt Dark Theme
 /// ==============================
 class AppDarkColors extends BrandKolors {
   const AppDarkColors();

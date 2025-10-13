@@ -7,8 +7,8 @@ class UiTheme {
   static const apple = IOSBrandLightColors();
   static const appleDark = IOSBrandDarkColors();
 
-  static const soul = LightSoulColors();
-  static const soulDark = DarkSoulColors();
+  static const soul = LightOrkittColors();
+  static const soulDark = DarkOrkittColors();
 
   static const material = GoogleMaterialLightColors();
   static const materialDark = GoogleMaterialDarkColors();

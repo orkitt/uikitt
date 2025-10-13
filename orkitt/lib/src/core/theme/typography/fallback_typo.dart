@@ -2,7 +2,7 @@ part of 'package:orkitt/orkitt.dart';
 
 /// DefaultTypography provides a fallback set of typography styles.
 
-/// Default implementation of SoulTypography
+/// Default implementation of OrkittTypography
 class FallBackTypography extends BrandTypo {
   @override
   String get fontFamily => 'Roboto';

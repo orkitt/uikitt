@@ -1,13 +1,11 @@
 name: orkitt
-description: A professional Flutter UI framework by Orkitt Studio — designed to accelerate app development 
-  through responsive design, modular components, and brand-driven theming. 
-  Build scalable, beautiful, and consistent interfaces with less boilerplate.
+description: A professional Flutter UIKit by Orkitt Studio — designed to accelerate app development through responsive design, modular components, and brand-driven theming. Build scalable, beautiful, and consistent interfaces with less boilerplate.
 
-version: 1.0.0-dev
-homepage: https://github.com/orkitt/orkitt_framework
-repository: https://github.com/orkitt/orkitt_framework
-issue_tracker: https://github.com/orkitt/orkitt_framework/issues
-documentation: https://github.com/orkitt/orkitt_framework/wiki
+version: 1.0.0
+homepage: https://github.com/orkitt/uikit
+repository: https://github.com/orkitt/uikit
+issue_tracker: https://github.com/orkitt/uikit/issues
+documentation: https://github.com/orkitt/uikit/wiki
 
 screenshots:
   - description: 'Orkitt UI Framework Icon'
@@ -15,7 +13,7 @@ screenshots:
   - description: 'Orkitt UI Framework Cover Image'
     path: images/cover.jpg
   - description: 'Responsive Layout System'
-    path: images/responsive.jpg
+    path: images/global.jpg
   - description: 'Theming & Components Overview'
     path: images/components.jpg
 

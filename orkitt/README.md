@@ -1,3 +1,14 @@
+![Logo Image](https://raw.githubusercontent.com/orkitt/uikit/master/images/brand_sm.png)
+
+![Flutter](https://img.shields.io/badge/Flutter-3.38.0-blue?logo=flutter&logoColor=white)![Dart](https://img.shields.io/badge/Dart-3.8.0-blue?logo=dart&logoColor=white)
+![License](https://img.shields.io/badge/License-BSD3.0-green)
+![Version](https://img.shields.io/badge/Version-1.0.0-green)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
+![Issues](https://img.shields.io/github/issues/orkitt/uikit)
+![Forks](https://img.shields.io/github/forks/orkitt/uikit)
+![Stars](https://img.shields.io/github/stars/orkitt/uikit)
+![Contributors](https://img.shields.io/github/contributors/orkitt/uikit)
+[![Stand With Palestine](https://github.com/arrahmanbd/bangla_pdf_fixer/raw/master/images/StandWithPalestine.svg)](https://pub.dev/packages/uikit)
 
 # 🪶 Orkitt UI Framework
 
@@ -204,11 +215,12 @@ Submit pull requests or open issues at:
 
 ### 🏷️ License
 
-**Apache License 2.0**
-Copyright © 2025 **Orkitt Empire**
+***BSD 3-Clause License*** 
+
+Copyright © 2025 **Orkitt Studio**
 All rights reserved.
 
-Use of this source code is governed by the Apache License, Version 2.0, which permits usage, modification, and distribution under specific conditions.
+Use of this source code is governed by the BSD 3-Clause License, which permits usage, modification, and distribution under specific conditions.
 See the [LICENSE](./LICENSE) file for full details.
 
 
@@ -216,7 +228,6 @@ See the [LICENSE](./LICENSE) file for full details.
 
 ### 🌐 Connect
 
-🌍 Website: [orkitt.dev](https://orkitt.dev)
 🐙 GitHub: [github.com/orkitt](https://github.com/orkitt)
 💬 Twitter/X: [@orkittdev](https://twitter.com/orkittdev)
 

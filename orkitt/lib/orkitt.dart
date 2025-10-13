@@ -26,6 +26,7 @@
 /// CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 /// OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 /// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 library;
 
 /// Dart Core Libraries
@@ -294,20 +295,3 @@ part 'src/models/frame_model.dart';
 part 'src/models/media_info.dart';
 part 'src/models/orentaion_lock.dart';
 
-/// *****************************************************************************
-/// 
-/// Orkitt UI Kit v1.0.0
-/// Copyright (c) 2024 [Orkitt]. All rights reserved.
-/// BSD 3-Clause License - see LICENSE for details.
-/// Initial Release: November 2025
-/// Based on: Flutter Addons Library v3.0.0 (Legacy Framework)
-/// Developed by AR Rahman
-///
-/// A modern, brand-driven UI framework that extends Flutter’s core capabilities
-/// with beautifully crafted components, typography, color systems, and layout
-/// extensions — designed to accelerate high-quality app development under the
-/// Orkitt design principles.
-///
-/// Repository: https://github.com/orkitt/uikit
-/// Documentation: https://docs.orkitt.dev/uikit
-/// *****************************************************************************
