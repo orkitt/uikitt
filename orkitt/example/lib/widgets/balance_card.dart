@@ -19,7 +19,7 @@ class BalanceCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(24.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.blueAccent.withOpacity(0.25),
+            color: Colors.blueAccent.withValues(alpha:0.25),
             blurRadius: 15.r,
             offset: const Offset(0, 8),
           ),
