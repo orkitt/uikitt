@@ -1,0 +1,17 @@
+name: uikitt
+environment:
+  sdk: ">=3.10.4 <4.0.0"
+dev_dependencies:
+  melos: ^7.3.0
+  
+workspace:
+  - packages/orkitt
+  - packages/orkitt_cli
+  - packages/orkitt_core
+  - packages/orkitt_foundation
+  - packages/orkitt_ui
+  - packages/orkitt_utils
+melos: 
+command:
+  bootstrap:
+    usePubspecOverrides: true
