@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:orkitt_foundation/orkitt_foundation.dart';
-import 'package:orkitt_ui/orkitt_ui.dart';
 
 class Label extends StatelessWidget {
   final String text;
