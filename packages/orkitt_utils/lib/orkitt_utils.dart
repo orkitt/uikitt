@@ -4,8 +4,6 @@
  */
 
 
-library orkitt_utils;
-
 
 // Extensions
 export 'src/utils/extension.dart';

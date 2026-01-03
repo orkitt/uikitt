@@ -22,3 +22,8 @@ designed to reduce boilerplate and speed up development.
 ```yaml
 dependencies:
   orkitt_utils: ^0.0.1
+```
+
+## © Copyright
+
+© 2026 Orkitt. All rights reserved.

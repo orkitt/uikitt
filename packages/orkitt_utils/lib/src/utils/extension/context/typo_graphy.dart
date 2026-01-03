@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
 
-import 'brand_extension.dart';
 
 /// Extension on `BuildContext` for easy access to `TextTheme`.
 // extension ContextTextStyles on BuildContext {
