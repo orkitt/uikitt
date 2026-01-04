@@ -33,8 +33,21 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  orkitt_core : ^0.0.1
+  orkitt_foundation: ^1.0.0
+  orkitt_ui: ^0.0.1
+  orkitt_utils : ^0.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+
+# This package supports all platforms listed below.
+platforms:
+  android:
+  ios:
+  linux:
+  macos:
+  web:
+  windows:
