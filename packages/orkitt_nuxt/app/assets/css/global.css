@@ -1,0 +1,48 @@
+.header{
+    background-color: #f3f2ef;
+    padding: 10px 0;
+}
+
+.hero {
+    /* Gradient from top to bottom */
+    background: linear-gradient(180deg,
+            #F2F2F4 0%,
+            #FFF0BC 50%,
+            #FFCD24 100%);
+    min-height: 80vh;
+    /* Tall hero */
+    padding: 4rem 1rem 0rem 1rem;
+    ;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+    .hero {
+        padding: 6rem 0rem 2rem 0 rem;
+    }
+}
+
+.hero h1 {
+    color: #333;
+    /* Ensure text is visible */
+}
+
+.hero p {
+    color: #444;
+}
+
+.hero .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.4s;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
