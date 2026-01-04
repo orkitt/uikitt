@@ -1,20 +1,51 @@
 
+## v1.1.0 — Monorepo Support
 
-# v1.0.0 — Initial Release
+### Added
 
-The first stable release of **Orkitt Framework**, a modular Flutter framework designed to simplify responsive design, theming, and UI composition.
+* Integrated **Melos** for managing a scalable Flutter monorepo.
+* Enabled shared local dependencies across all Orkitt packages.
+* Improved repository structure for better modularity and maintainability.
 
-##  Highlights
+### Changed
 
-* **Responsive Core:** Built-in screen scaling, design frame utilities, and breakpoint management.
-* **Theme Engine:** Extensible color system, typography styles, and branding palettes.
-* **UI Components:** Pre-styled buttons, forms, cards, and feedback widgets for rapid prototyping.
-* **Utility Extensions:** Powerful helpers for data formatting, async handling, and widget composition.
-* **Navigation & State:** Enhanced routing extensions and lifecycle management.
+* Refactored package organization to align with monorepo best practices.
+* Standardized tooling and dependency resolution across packages.
 
-## Foundation
+---
 
-* Organized by clear module boundaries: Core, Views, Utils, Services, and Models.
-* Bootstrap-inspired responsive engine for flexible, adaptive layouts.
-* Ready for integration with modern Flutter workflows.
+## v1.0.0 — Initial Stable Release
+
+The first stable release of **Orkitt Framework** — a modular Flutter framework built to simplify responsive design, theming, and UI composition.
+
+### Key Features
+
+#### Responsive Core
+
+* Screen scaling utilities and adaptive layout helpers.
+* Breakpoint-based design system for consistent responsiveness.
+
+#### Theme Engine
+
+* Extensible color system and typography definitions.
+* Centralized branding and theming support.
+
+#### UI Components
+
+* Pre-styled buttons, forms, cards, and feedback widgets.
+* Designed for rapid prototyping and production readiness.
+
+#### Utility Extensions
+
+* Helpers for data formatting, async workflows, and widget composition.
+
+#### Navigation & State
+
+* Routing extensions and lifecycle-aware state utilities.
+
+### Architecture
+
+* Clear module boundaries: **Core**, **Views**, **Utils**, **Services**, and **Models**.
+* Bootstrap-inspired responsive engine for flexible layouts.
+* Fully compatible with modern Flutter tooling and workflows.
 
