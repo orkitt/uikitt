@@ -1,6 +1,8 @@
-# 1.1.2
+# 1.1.3
 
 ### Added
+
+- Fixed template json issues
 - Initial release of Orkitt CLI
 - `orkitt create <AppName>` command with `--template lite|feature`
 - `orkitt add <module>` for predefined modules (e.g., auth, api)

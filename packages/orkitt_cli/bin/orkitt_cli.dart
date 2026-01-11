@@ -12,8 +12,8 @@ import 'package:path/path.dart' as p;
 import 'package:process_run/shell.dart';
 
 final shell = Shell();
-const orkittVersion = '1.1.0';
-
+const orkittVersion = '1.1.3';
+const package = 'packages/orkitt_cli/lib';
 Future<void> main(List<String> arguments) async {
   final parser = ArgParser()
     ..addFlag(
@@ -96,7 +96,8 @@ Future<void> _create(ArgResults args) async {
   }
 
   try {
-    await shell.run('cd $normalized && flutter pub add flutter_riverpod dio');
+    await shell
+        .run('cd $normalized && flutter pub add flutter_riverpod dio orkitt');
   } catch (_) {
     stderr.writeln('⚠️ Failed to add some packages, continuing...');
   }
@@ -104,10 +105,10 @@ Future<void> _create(ArgResults args) async {
   final cliRoot = _cliRoot();
 
   final template =
-      loadTemplate(p.join(cliRoot, 'lib/templates/$templateName.json'));
+      loadTemplate(p.join(cliRoot, '$package/templates/$templateName.json'));
 
   final snippets = loadSnippets(
-    p.join(cliRoot, 'lib/snippets/snippets.json'),
+    p.join(cliRoot, '$package/snippets/snippets.json'),
     variables: {
       'AppName': appName,
       'app_name': normalized,
@@ -139,7 +140,7 @@ Future<void> _add(ArgResults args) async {
   final name = args.rest.first;
   final cliRoot = _cliRoot();
 
-  final templatePath = p.join(cliRoot, 'lib/templates/add_$name.json');
+  final templatePath = p.join(cliRoot, '$package/templates/add_$name.json');
 
   if (!File(templatePath).existsSync()) {
     stderr.writeln('❌ Unknown add module: $name');
@@ -149,7 +150,7 @@ Future<void> _add(ArgResults args) async {
   final template = loadTemplate(templatePath);
 
   final snippets = loadSnippets(
-    p.join(cliRoot, 'lib/snippets/snippets.json'),
+    p.join(cliRoot, '$package/snippets/snippets.json'),
     variables: const {},
   );
 
@@ -172,11 +173,11 @@ Future<void> _feature(ArgResults args) async {
   final cliRoot = _cliRoot();
 
   final template = loadTemplate(
-    p.join(cliRoot, 'lib/templates/feature.json'),
+    p.join(cliRoot, '$package/templates/feature.json'),
   );
 
   final snippets = loadSnippets(
-    p.join(cliRoot, 'lib/snippets/snippets.json'),
+    p.join(cliRoot, '$package/snippets/snippets.json'),
     variables: {
       'feature': feature,
       'Feature': _capitalize(feature),
