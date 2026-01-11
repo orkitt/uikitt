@@ -13,7 +13,7 @@ import 'package:process_run/shell.dart';
 
 final shell = Shell();
 const orkittVersion = '1.1.3';
-const package = 'packages/orkitt_cli/lib';
+
 Future<void> main(List<String> arguments) async {
   final parser = ArgParser()
     ..addFlag(
@@ -23,7 +23,7 @@ Future<void> main(List<String> arguments) async {
       help: 'Show the Orkitt CLI version',
     );
 
-  // Define commands **before parsing**
+  // Define commands before parsing
   parser.addCommand('create').addOption(
     'template',
     abbr: 't',
@@ -34,7 +34,6 @@ Future<void> main(List<String> arguments) async {
   parser.addCommand('add');
   parser.addCommand('feature');
 
-  // Now parse arguments
   final argResults = parser.parse(arguments);
 
   // Version check
@@ -45,25 +44,28 @@ Future<void> main(List<String> arguments) async {
 
   final cmd = argResults.command;
   if (cmd == null) {
-    print('Usage: orkitt create|add|feature [options]');
+    _usage();
     exit(0);
   }
 
   switch (cmd.name) {
     case 'create':
-      await _create(cmd); // your existing _create function
+      await _create(cmd);
       break;
     case 'add':
-      await _add(cmd); // your existing _add function
+      await _add(cmd);
       break;
     case 'feature':
-      await _feature(cmd); // your existing _feature function
+      await _feature(cmd);
       break;
     default:
       _usage();
   }
 }
 
+// -----------------------------
+// USAGE
+// -----------------------------
 void _usage() {
   stdout.writeln('''
 Usage:
@@ -73,9 +75,9 @@ Usage:
 ''');
 }
 
-// --------------------------------------------
+// -----------------------------
 // CREATE COMMAND
-// --------------------------------------------
+// -----------------------------
 Future<void> _create(ArgResults args) async {
   if (args.rest.isEmpty) {
     stderr.writeln('❌ Provide app name');
@@ -102,13 +104,12 @@ Future<void> _create(ArgResults args) async {
     stderr.writeln('⚠️ Failed to add some packages, continuing...');
   }
 
-  final cliRoot = _cliRoot();
-
-  final template =
-      loadTemplate(p.join(cliRoot, '$package/templates/$templateName.json'));
+  final template = loadTemplate(
+    getPackageFile('templates/$templateName.json').path,
+  );
 
   final snippets = loadSnippets(
-    p.join(cliRoot, '$package/snippets/snippets.json'),
+    getPackageFile('snippets/snippets.json').path,
     variables: {
       'AppName': appName,
       'app_name': normalized,
@@ -128,9 +129,9 @@ Future<void> _create(ArgResults args) async {
   stdout.writeln('✅ App created with "$templateName" template');
 }
 
-// --------------------------------------------
+// -----------------------------
 // ADD COMMAND
-// --------------------------------------------
+// -----------------------------
 Future<void> _add(ArgResults args) async {
   if (args.rest.isEmpty) {
     stderr.writeln('Usage: orkitt add <api|auth>');
@@ -138,9 +139,7 @@ Future<void> _add(ArgResults args) async {
   }
 
   final name = args.rest.first;
-  final cliRoot = _cliRoot();
-
-  final templatePath = p.join(cliRoot, '$package/templates/add_$name.json');
+  final templatePath = getPackageFile('templates/add_$name.json').path;
 
   if (!File(templatePath).existsSync()) {
     stderr.writeln('❌ Unknown add module: $name');
@@ -148,9 +147,8 @@ Future<void> _add(ArgResults args) async {
   }
 
   final template = loadTemplate(templatePath);
-
   final snippets = loadSnippets(
-    p.join(cliRoot, '$package/snippets/snippets.json'),
+    getPackageFile('snippets/snippets.json').path,
     variables: const {},
   );
 
@@ -160,9 +158,9 @@ Future<void> _add(ArgResults args) async {
   stdout.writeln('✅ Module "$name" added');
 }
 
-// --------------------------------------------
+// -----------------------------
 // FEATURE COMMAND
-// --------------------------------------------
+// -----------------------------
 Future<void> _feature(ArgResults args) async {
   if (args.rest.isEmpty) {
     stderr.writeln('Usage: orkitt feature <name>');
@@ -170,14 +168,12 @@ Future<void> _feature(ArgResults args) async {
   }
 
   final feature = args.rest.first;
-  final cliRoot = _cliRoot();
-
   final template = loadTemplate(
-    p.join(cliRoot, '$package/templates/feature.json'),
+    getPackageFile('templates/feature.json').path,
   );
 
   final snippets = loadSnippets(
-    p.join(cliRoot, '$package/snippets/snippets.json'),
+    getPackageFile('snippets/snippets.json').path,
     variables: {
       'feature': feature,
       'Feature': _capitalize(feature),
@@ -190,12 +186,25 @@ Future<void> _feature(ArgResults args) async {
   stdout.writeln('✅ Feature "$feature" created in ${baseDir.path}');
 }
 
-// --------------------------------------------
+// -----------------------------
 // HELPERS
-// --------------------------------------------
+// -----------------------------
 String _normalize(String name) =>
     name.toLowerCase().replaceAll(RegExp(r'[^a-z0-9_]'), '_');
 
 String _capitalize(String s) => s[0].toUpperCase() + s.substring(1);
 
-String _cliRoot() => File(Platform.resolvedExecutable).parent.parent.path;
+/// Returns the root directory of the CLI package (lib folder)
+String _cliPackageRoot() {
+  final scriptDir = p.dirname(Platform.script.toFilePath());
+  return p.normalize(p.join(scriptDir, '../lib'));
+}
+
+/// Get a file inside the CLI package (templates/snippets)
+File getPackageFile(String relativePath) {
+  final file = File(p.join(_cliPackageRoot(), relativePath));
+  if (!file.existsSync()) {
+    throw Exception('Template/snippet file not found: ${file.path}');
+  }
+  return file;
+}
