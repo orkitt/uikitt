@@ -1,6 +1,6 @@
 name: orkitt_cli
 description: A powerful Flutter CLI tool to scaffold Orkitt-style Flutter apps with pre-configured folder structure, packages, and bootstrap files.
-version: 1.1.0
+version: 1.1.1
 homepage: https://github.com/orkitt/core/orkitt_cli
 repository: https://github.com/orkitt/core/orkitt_cli
 issue_tracker: https://github.com/orkitt/core/orkitt_cli/issues
@@ -33,6 +33,12 @@ keywords:
   - app-generator
   - flutter_cli
   - code_generator
+
+# Include templates and snippets in your package
+flutter:
+  assets:
+    - lib/templates/
+    - lib/snippets/
 
 # Licenses
 license: MIT

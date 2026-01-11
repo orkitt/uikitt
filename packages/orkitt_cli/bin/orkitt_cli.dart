@@ -3,7 +3,6 @@
  * All rights reserved.
  */
 
-
 import 'dart:io';
 import 'package:args/args.dart';
 import 'package:orkitt_cli/generator/snippet_loader.dart';
@@ -13,38 +12,52 @@ import 'package:path/path.dart' as p;
 import 'package:process_run/shell.dart';
 
 final shell = Shell();
+const orkittVersion = '1.1.0';
 
 Future<void> main(List<String> arguments) async {
-  final parser = ArgParser();
-
-  parser.addCommand('create')
-    .addOption(
-      'template',
-      abbr: 't',
-      defaultsTo: 'lite',
-      allowed: ['lite', 'feature'],
+  final parser = ArgParser()
+    ..addFlag(
+      'version',
+      abbr: 'v',
+      negatable: false,
+      help: 'Show the Orkitt CLI version',
     );
+
+  // Define commands **before parsing**
+  parser.addCommand('create').addOption(
+    'template',
+    abbr: 't',
+    defaultsTo: 'lite',
+    allowed: ['lite', 'feature'],
+  );
 
   parser.addCommand('add');
   parser.addCommand('feature');
 
-  final result = parser.parse(arguments);
-  final cmd = result.command;
+  // Now parse arguments
+  final argResults = parser.parse(arguments);
 
-  if (cmd == null) {
-    _usage();
+  // Version check
+  if (argResults['version'] == true) {
+    print('Orkitt CLI version $orkittVersion');
     return;
+  }
+
+  final cmd = argResults.command;
+  if (cmd == null) {
+    print('Usage: orkitt create|add|feature [options]');
+    exit(0);
   }
 
   switch (cmd.name) {
     case 'create':
-      await _create(cmd);
+      await _create(cmd); // your existing _create function
       break;
     case 'add':
-      await _add(cmd);
+      await _add(cmd); // your existing _add function
       break;
     case 'feature':
-      await _feature(cmd);
+      await _feature(cmd); // your existing _feature function
       break;
     default:
       _usage();
@@ -54,7 +67,7 @@ Future<void> main(List<String> arguments) async {
 void _usage() {
   stdout.writeln('''
 Usage:
-  orkitt create MyApp --template lite
+  orkitt create great_app --template lite
   orkitt add <api|auth>
   orkitt feature <feature_name>
 ''');
@@ -90,7 +103,8 @@ Future<void> _create(ArgResults args) async {
 
   final cliRoot = _cliRoot();
 
-  final template = loadTemplate(p.join(cliRoot, 'lib/templates/$templateName.json'));
+  final template =
+      loadTemplate(p.join(cliRoot, 'lib/templates/$templateName.json'));
 
   final snippets = loadSnippets(
     p.join(cliRoot, 'lib/snippets/snippets.json'),
@@ -181,9 +195,6 @@ Future<void> _feature(ArgResults args) async {
 String _normalize(String name) =>
     name.toLowerCase().replaceAll(RegExp(r'[^a-z0-9_]'), '_');
 
-String _capitalize(String s) =>
-    s[0].toUpperCase() + s.substring(1);
+String _capitalize(String s) => s[0].toUpperCase() + s.substring(1);
 
-String _cliRoot() =>
-    File(Platform.resolvedExecutable).parent.parent.path;
-
+String _cliRoot() => File(Platform.resolvedExecutable).parent.parent.path;

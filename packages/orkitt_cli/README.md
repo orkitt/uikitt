@@ -28,7 +28,7 @@ Orkitt CLI is a productivity tool for Flutter developers that:
 
 ```bash
 # Create a new app with lite template
-orkitt create MyApp --template lite
+orkitt create great_app --template lite
 
 # Add a predefined module
 orkitt add auth
