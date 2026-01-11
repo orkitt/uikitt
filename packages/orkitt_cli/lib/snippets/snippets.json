@@ -1,0 +1,38 @@
+{
+  "app.main": {
+    "content": "import 'package:flutter/material.dart';\nimport 'bootstrap.dart';\n\nclass App extends StatelessWidget {\n  const App({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      debugShowCheckedModeBanner: false,\n      home: const Scaffold(\n        body: Center(child: Text('Hello from Orkitt!')),\n      ),\n    );\n  }\n}\n"
+  },
+
+  "app.bootstrap": {
+    "content": "import 'package:flutter/widgets.dart';\nimport 'app.dart';\n\nFuture<void> bootstrap() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  runApp(const App());\n}\n"
+  },
+
+  "core.constants": {
+    "content": "class AppConstants {\n  static const appName = 'Orkitt App';\n}\n"
+  },
+
+  "core.theme": {
+    "content": "import 'package:flutter/material.dart';\n\nclass AppTheme {\n  static ThemeData get light => ThemeData.light();\n  static ThemeData get dark => ThemeData.dark();\n}\n"
+  },
+
+  "core.colors": {
+    "content": "import 'package:flutter/material.dart';\n\nclass AppColors {\n  static const primary = Color(0xFF4A90E2);\n}\n"
+  },
+
+    "auth.login_page": {
+    "content": "class LoginPage extends StatelessWidget {\n  const LoginPage({super.key});\n  @override Widget build(context) => const Scaffold();\n}\n"
+  },
+  "auth.provider": {
+    "content": "final authProvider = Provider((ref) => null);\n"
+  },
+  "auth.repository": {
+    "content": "class AuthRepository {}\n"
+  },
+  "feature.page": {
+    "content": "class {{Feature}}Page extends StatelessWidget {\n  @override Widget build(context) => const Scaffold();\n}\n"
+  },
+  "feature.provider": {
+    "content": "final {{feature}}Provider = Provider((ref) {});\n"
+  }
+}
+

@@ -15,64 +15,31 @@ Activate globally via Dart:
 dart pub global activate orkitt_cli
 ```
 
+## Features
 
----
+Orkitt CLI is a productivity tool for Flutter developers that:
+
+- Creates Flutter apps with predefined folder structures
+- Adds feature modules or API boilerplate
+- Uses JSON-driven templates and snippet system
+- Supports Riverpod, Dio, and other core packages
 
 ## Usage
 
-Create a new Flutter app with Orkitt CLI:
-
 ```bash
-orkitt create "MyApp"
-```
+# Create a new app with lite template
+orkitt create MyApp --template lite
 
-This will:
+# Add a predefined module
+orkitt add auth
 
-1. Create a Flutter app named `MyApp` with `--org dev.orkitt`
-2. Install core packages
-3. Generate the full folder and file structure
-4. Initialize Git
+# Create a custom feature in the current directory
+orkitt feature payments
+````
 
----
 
-## Folder Structure Example
 
-```
-lib/
- └── src/
-     ├── core/colors/app_color.dart
-     ├── core/constants/app_constants.dart
-     ├── core/theme/theme.dart
-     ├── data/models/
-     ├── data/repositories/
-     ├── features/auth/login_page.dart
-     ├── features/auth/signup_page.dart
-     ├── features/splash/splash_page.dart
-     ├── features/onboarding/onboarding_page.dart
-     ├── l10n/messages.dart
-     ├── providers/providers.dart
-     ├── routes/app_routes.dart
-     ├── services/example_service.dart
-     ├── shared/widgets/example_widget.dart
-     ├── shared/utils/example_utils.dart
-     ├── app.dart
-     └── bootstrap.dart
-```
 
----
+## © Copyright
 
-## Contributing
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/my-feature`)
-3. Make your changes
-4. Commit (`git commit -am 'Add new feature'`)
-5. Push (`git push origin feature/my-feature`)
-6. Create a pull request
-
----
-
-## License
-
-MIT License © Orkitt Technology
-
+© 2026 Orkitt. All rights reserved.

@@ -1,0 +1,25 @@
+{
+  "name": "add_auth",
+  "base": "lib/src",
+  "folders": [
+    "data/auth",
+    "data/auth/models",
+    "data/auth/repositories",
+    "features/auth/pages",
+    "features/auth/providers"
+  ],
+  "files": [
+    {
+      "path": "features/auth/pages/login_page.dart",
+      "snippet": "auth.login_page"
+    },
+    {
+      "path": "features/auth/providers/auth_provider.dart",
+      "snippet": "auth.provider"
+    },
+    {
+      "path": "data/auth/repositories/auth_repository.dart",
+      "snippet": "auth.repository"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "name": "lite",
+
+  "folders": [
+    "core/constants",
+    "core/theme",
+    "core/colors",
+    "data/models",
+    "data/repositories",
+    "features/auth",
+    "features/splash",
+    "features/onboarding",
+    "l10n",
+    "providers",
+    "routes",
+    "services",
+    "shared/widgets",
+    "shared/utils"
+  ],
+
+  "files": [
+    {
+      "path": "app.dart",
+      "snippet": "app.main"
+    },
+    {
+      "path": "bootstrap.dart",
+      "snippet": "app.bootstrap"
+    },
+    {
+      "path": "core/constants/app_constants.dart",
+      "snippet": "core.constants"
+    },
+    {
+      "path": "core/theme/theme.dart",
+      "snippet": "core.theme"
+    },
+    {
+      "path": "core/colors/app_color.dart",
+      "snippet": "core.colors"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "generic_feature",
+  "folders": [
+    "{{feature}}",
+    "{{feature}}/pages",
+    "{{feature}}/providers",
+    "{{feature}}/widgets"
+  ],
+  "files": [
+    {
+      "path": "{{feature}}/pages/{{feature}}_page.dart",
+      "snippet": "feature.page"
+    },
+    {
+      "path": "{{feature}}/providers/{{feature}}_provider.dart",
+      "snippet": "feature.provider"
+    }
+  ]
+}
