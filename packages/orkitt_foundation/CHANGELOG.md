@@ -1,3 +1,7 @@
+# 1.0.1
+
+- Add major language support
+
 # 1.0.0
 
 - Initial stable release

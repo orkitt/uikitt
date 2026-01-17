@@ -2,7 +2,7 @@ name: orkitt_foundation
 description: "Core foundation package for the Orkitt ecosystem.
   Provides shared constants, base types, platform helpers and low-level
   abstractions"
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/orkitt/uikit
 repository: https://github.com/orkitt/uikit
 issue_tracker: https://github.com/orkitt/uikit/issues

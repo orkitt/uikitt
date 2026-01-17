@@ -1,6 +1,6 @@
 name: orkitt_core
 description: "Core logic package for the Orkitt ecosystem. Contains application responsive management, lifecycle handling, services."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/orkitt/uikit
 repository: https://github.com/orkitt/uikit
 issue_tracker: https://github.com/orkitt/uikit/issues

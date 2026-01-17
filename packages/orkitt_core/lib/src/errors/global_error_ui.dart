@@ -40,7 +40,7 @@ class WinDeath extends StatelessWidget {
                 "Oops! An unexpected issue occurred.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 18.fontscale,
+                  fontSize: 18.sp,
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
                 ),
@@ -49,7 +49,7 @@ class WinDeath extends StatelessWidget {
               Text(
                 "Debug info is being collected. You may restart or fix the issue.",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14.fontscale, color: Colors.white70),
+                style: TextStyle(fontSize: 14.sp, color: Colors.white70),
               ),
               SizedBox(height: 3.ph),
               _buildErrorBox(exceptionText),
@@ -62,7 +62,7 @@ class WinDeath extends StatelessWidget {
                 DeveloperMotivation.randomMessage,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 12.fontscale,
+                  fontSize: 12.sp,
                   fontStyle: FontStyle.italic,
                   color: Colors.lightGreenAccent,
                 ),

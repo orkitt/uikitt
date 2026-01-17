@@ -4,7 +4,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:orkitt_core/orkitt_core.dart';
 
-
 extension SmartScalerExtension on num {
   // ------------------------
   // Percent-based extensions
@@ -78,7 +77,7 @@ extension SmartScalerExtension on num {
     }
   }
 
-  double get fontscale {
+  double get sp {
     final mode = ComposerScale.instance.mode;
     switch (mode) {
       case ScaleMode.design:

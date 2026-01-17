@@ -34,7 +34,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   orkitt_core : ^0.0.1
-  orkitt_foundation: ^1.0.0
+  orkitt_foundation: ^1.0.1
   orkitt_ui: ^0.0.1
   orkitt_utils : ^0.0.1
 
