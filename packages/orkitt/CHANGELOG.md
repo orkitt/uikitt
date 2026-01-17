@@ -1,5 +1,8 @@
-
-## v1.1.0 — Monorepo Support
+# 1.1.1
+- Added Major languages
+- Fix .sp extensions
+  
+## v1.1.0 
 
 ### Added
 
