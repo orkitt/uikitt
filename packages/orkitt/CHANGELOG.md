@@ -1,5 +1,7 @@
-# 1.1.1
+# 1.1.2
+
 - Added Major languages
+- Fix: initilaization
 - Fix .sp extensions
   
 ## v1.1.0 

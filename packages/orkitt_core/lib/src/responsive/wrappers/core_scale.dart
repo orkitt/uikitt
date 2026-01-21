@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:orkitt_core/orkitt_core.dart';
-import 'package:orkitt_core/src/model/design_frame.dart';
-import 'package:orkitt_core/src/helpers/screen_utils.dart';
-
-import '../../helpers/design_utils.dart';
 
 /// Singleton class that initializes and coordinates all scaling modes.
 ///

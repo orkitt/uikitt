@@ -1,5 +1,6 @@
-# 0.0.2
+# 0.0.3
 - Fix .sp extension
+- Fix: initilaization
   
 # 0.0.1
 

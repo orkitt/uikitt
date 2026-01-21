@@ -76,7 +76,6 @@ class _AppComposerState extends State<AppComposer> with WidgetsBindingObserver {
   @override
   void didChangeMetrics() {
     super.didChangeMetrics();
-
     // debounce to prevent rapid rebuilds
     _resizeDebounce?.cancel();
     _resizeDebounce = Timer(const Duration(milliseconds: 100), () {
@@ -106,8 +105,11 @@ class _AppComposerState extends State<AppComposer> with WidgetsBindingObserver {
 
   void _updateScreenInfo() {
     final mq = MediaQuery.maybeOf(context);
-    if (mq == null || mq.size.isEmpty) return;
-
+    if (mq == null || mq.size.isEmpty) {
+      // Try again in the next frame
+      WidgetsBinding.instance.addPostFrameCallback((_) => _updateScreenInfo());
+      return;
+    }
     final newOrientation = mq.orientation;
     final newSize = mq.size;
 
@@ -127,20 +129,21 @@ class _AppComposerState extends State<AppComposer> with WidgetsBindingObserver {
       });
 
       if (!_coreScaleInitialized) {
-        try {
-          ComposerScale.instance.init(
-            rootContext: context,
-            mode: widget.designFrame != null
-                ? ScaleMode.design
-                : widget.scaleMode,
-            //designFrame: widget.designFrame ?? DesignFrame.mobileLarge,
-            designFrame: _getDesignFrame(_orientation!),
-            debugLog: widget.enableDebugLogging,
-          );
-          _coreScaleInitialized = true; // only initialize once
-        } catch (e) {
-          debugPrint('CoreScale init error: $e');
-        }
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          try {
+            ComposerScale.instance.init(
+              rootContext: context,
+              mode: widget.designFrame != null
+                  ? ScaleMode.design
+                  : widget.scaleMode,
+              designFrame: _getDesignFrame(_orientation!),
+              debugLog: widget.enableDebugLogging,
+            );
+            _coreScaleInitialized = true;
+          } catch (e) {
+            debugPrint('CoreScale init error: $e');
+          }
+        });
       }
 
       if (widget.enableDebugLogging) {
