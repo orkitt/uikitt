@@ -117,6 +117,9 @@ extension TextStyleEnhancements on TextStyle {
   /// Applies line height
   TextStyle withHeight(double height) => copyWith(height: height);
 
+  /// Applies font style
+  TextStyle withStyle(TextStyle style) => copyWith()..withStyle(style);
+
   /// Applies text decoration
   TextStyle withDecoration(TextDecoration decoration) =>
       copyWith(decoration: decoration);

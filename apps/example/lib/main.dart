@@ -23,13 +23,14 @@ class MyApp extends StatelessWidget {
         height: 812,
       ), // Base design frame
       scaleMode: ScaleMode.design, // Design-based scaling
-      pixelDebug: false, // Turn on for layout visualization
+      pixelDebug: true, // Turn on for layout visualization
       gridCount: 12, // Default grid layout (for responsive spacing)
       enableDebugLogging: true, // Logs device metrics & scaling
       errorScreen: ErrorScreen.dessert, // Custom global error view
-      ownErrorScreen: (err) => GlobalError(errorDetails: err),
-      version: '2.0.0', // Or auto-fetch from pubspec.yaml
-      appBuilder: (Composer layout) => const OrkittAppDemo(),
+      appBuilder: (layout) {
+        return  OrkittAppDemo(
+        );
+      },
     );
   }
 }

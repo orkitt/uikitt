@@ -45,7 +45,7 @@ export 'src/helpers/core_logger.dart';
 export 'src/helpers/design_utils.dart';
 export 'src/helpers/screen_utils.dart';
 export 'src/extension/scale_core.dart';
-
+export 'src/helpers/smart_unit.dart';
 // ===========================
 // RESPONSIVE → SPACING
 // ===========================
@@ -93,3 +93,4 @@ export 'src/extension/core_utils.dart';
 export 'src/utils/responsive_utils.dart';
 export 'src/extension/core_typo.dart';
 export 'package:orkitt_foundation/orkitt_foundation.dart';
+export 'src/dynamic/sizer.dart';

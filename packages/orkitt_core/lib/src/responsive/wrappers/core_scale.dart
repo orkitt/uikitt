@@ -1,126 +1,130 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:orkitt_core/orkitt_core.dart';
 
-/// Singleton class that initializes and coordinates all scaling modes.
+/// Central scaling coordinator for Orkitt.
 ///
-/// Use [ComposerScale.instance.init] once on startup.
-class ComposerScale {
-  static final ComposerScale _instance = ComposerScale._internal();
+/// Lifecycle:
+/// 1. Call [init] once after MediaQuery exists
+/// 2. Call [update] whenever MediaQuery changes (resize/orientation)
+/// 3. Use scaling helpers throughout the app
+class OrkittCoreScaling {
+  OrkittCoreScaling._internal();
 
-  factory ComposerScale() => _instance;
+  static final OrkittCoreScaling instance = OrkittCoreScaling._internal();
 
-  static ComposerScale get instance => _instance;
-
-  ComposerScale._internal();
+  static const String _tag = '[OrkittScaling]';
 
   late ScaleMode _mode;
-  bool _initialized = false;
-  bool _debugLog = false;
   late MediaQueryData _mediaQuery;
 
   DesignFrame? _designFrame;
+  bool _initialized = false;
+  bool _debugLog = false;
 
-  /// Initializes Composer once at app startup.
-  /// Sets mode, design frame, and enables logging if needed.
+  /// Initializes scaling infrastructure.
+  ///
+  /// If [force] is true, re-initializes even if already initialized.
   void init({
-    required BuildContext rootContext,
+    required MediaQueryData mediaQuery,
     required ScaleMode mode,
     DesignFrame? designFrame,
     bool debugLog = false,
+    bool force = false,
   }) {
-    if (_initialized) {
-      if (debugLog) _log('[Composer] Already initialized, skipping init.');
+    if (_initialized && !force) {
+      _log('$_tag Already initialized — skipping.');
       return;
     }
 
+    _mediaQuery = mediaQuery;
     _mode = mode;
-    _debugLog = debugLog;
     _designFrame = designFrame;
+    _debugLog = debugLog;
 
-    _mediaQuery = MediaQuery.of(rootContext);
-    _log('[Composer] Initializing with mode: $_mode');
-    //ThemeHelper.init(rootContext);
-    // Initialize percent-based scaling
-    OrkittScreenUtils.initialize(mediaQuery: _mediaQuery);
-
-    // Initialize or update design-based scaling only if designFrame is valid
-    // and the current mode is ScaleMode.design
-    if (_mode == ScaleMode.design &&
-        _designFrame != null &&
-        _designFrame!.width > 0 &&
-        _designFrame!.height > 0) {
-      DesignScaleUtils.instance.init(
-        designWidth: _designFrame!.width,
-        designHeight: _designFrame!.height,
-        mediaQuery: _mediaQuery,
-        isLoggingEnabled: _debugLog,
-      );
-      _log('[Composer] Design-based scaling initialized or updated.');
-    } else {
-      _log(
-        '[Composer] Design frame invalid or not provided — skipping design scaling.',
-      );
-    }
+    _log('$_tag Initializing with mode: $_mode');
+    _applyScaling();
 
     _initialized = true;
+
     _log(
-      '[Composer] Initialization complete: '
-      'Screen: ${_mediaQuery.size.width} x ${_mediaQuery.size.height}',
+      '$_tag Init complete: '
+      '${_mediaQuery.size.width} x ${_mediaQuery.size.height}',
     );
   }
 
-  /// Updates Composer on screen size/orientation changes.
-  /// Should be called every time MediaQuery changes (e.g., on resize).
-  /// Does NOT reset mode or designFrame.
-  void update({required BuildContext context}) {
+  /// Updates scaling on MediaQuery changes.
+  void update(MediaQueryData mediaQuery) {
     if (!_initialized) {
-      throw FlutterError(
-        '[Composer] update() called before init(). Please call init() first.',
+      throw StateError(
+        'OrkittCoreScaling.update() called before init().',
       );
     }
 
-    _mediaQuery = MediaQuery.of(context);
-    _log('[Composer] Updating MediaQuery info.');
+    _mediaQuery = mediaQuery;
+    _log('$_tag MediaQuery updated.');
 
-    // Update ScreenUtils with new media query info
-    OrkittScreenUtils.initialize(mediaQuery: _mediaQuery);
-
-    // Update DesignUtils scaling if design frame exists
-    if (_designFrame != null &&
-        _designFrame!.width > 0 &&
-        _designFrame!.height > 0) {
-      DesignScaleUtils.instance.init(
-        designWidth: _designFrame!.width,
-        designHeight: _designFrame!.height,
-        mediaQuery: _mediaQuery,
-        isLoggingEnabled: _debugLog,
-      );
-      _log('[Composer] Design-based scaling updated.');
-    }
+    _applyScaling();
 
     _log(
-      '[Composer] Update complete: Screen: ${_mediaQuery.size.width} x ${_mediaQuery.size.height}',
+      '$_tag Update complete: '
+      '${_mediaQuery.size.width} x ${_mediaQuery.size.height}',
     );
   }
 
+  /// Current scaling mode.
   ScaleMode get mode {
     _assertInitialized();
     return _mode;
   }
 
+  /// Change scaling mode at runtime.
   void setMode(ScaleMode mode) {
     _assertInitialized();
+    if (_mode == mode) return;
+
     _mode = mode;
-    _log('[Composer] Mode changed to: $_mode');
+    _log('$_tag Mode changed to $_mode');
+
+    _applyScaling();
   }
 
+  /// Enable or disable debug logging.
   void enableLog(bool enable) {
     _debugLog = enable;
-    _log('[Composer] Logging ${enable ? "enabled" : "disabled"}');
+    _log('$_tag Logging ${enable ? "enabled" : "disabled"}');
+  }
+
+  // ---------------------------------------------------------------------------
+  // Internal
+  // ---------------------------------------------------------------------------
+
+  void _applyScaling() {
+    // Percent / screen-based scaling
+    OrkittScreenUtils.initialize(
+      mediaQuery: _mediaQuery,
+    );
+
+    // Design-based scaling
+    if (_mode == ScaleMode.design && _designFrame?.isValid == true) {
+      DesignScaleUtils.instance.init(
+        designWidth: _designFrame!.width,
+        designHeight: _designFrame!.height,
+        mediaQuery: _mediaQuery,
+        isLoggingEnabled: _debugLog,
+      );
+
+      _log('$_tag Design scaling applied.');
+    } else {
+      _log('$_tag Design scaling skipped.');
+    }
   }
 
   void _assertInitialized() {
-    assert(_initialized, '[Composer] is not initialized. Call init() first.');
+    assert(
+      _initialized,
+      'OrkittCoreScaling is not initialized. Call init() first.',
+    );
   }
 
   void _log(String message) {

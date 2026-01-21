@@ -22,7 +22,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  orkitt_foundation: ^1.0.0
+  orkitt_foundation: 
+    #path: ../orkitt_foundation
 
 dev_dependencies:
   flutter_test:

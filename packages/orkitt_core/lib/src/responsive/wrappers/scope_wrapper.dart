@@ -1,139 +1,109 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
-import 'dart:math' as math;
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'pixel_wrapper.dart';
 
-/// 🏗️  PRODUCTION BEHAVIOR NOTES
-///
-/// ## Release Mode Behavior
-/// • Returns wrapper component only - no widget rendering that could cause localization errors
-/// • Localization dependency issues are completely avoided in production builds
-///
-/// ## Debug Mode Considerations
-/// • If alerts are not appearing during development:
-///   → Set `enableDebugLog` to `false` when working with alert dialogs
-///   → This is a debug-only constraint for cleaner development experience
-///
-/// ## Safety & Optimization
-/// • ✅ Production-safe implementation
-/// • ✅ Clean architecture with no side effects
-/// • ✅ Fully optimized for release environments
-/// • ✅ No localization conflicts in deployed applications
 class ScopeWrapper extends StatelessWidget {
   const ScopeWrapper({
+    super.key,
     required this.wrapped,
-    required this.debugBanner,
-    required this.showGrid,
-    required this.columnCount,
-    required this.version,
+    this.showGrid = false,
+    this.columnCount = 12,
+    this.debugBanner = false,
   });
 
-  final Directionality wrapped;
-  final bool debugBanner;
+  final Widget wrapped;
   final bool showGrid;
   final int columnCount;
-  final String version;
+  final bool debugBanner;
 
   @override
   Widget build(BuildContext context) {
-    Widget content = showGrid
-        ? PixelPerfectGridOverlay(
+    Widget child = wrapped;
+
+    if (showGrid) {
+      child = Stack(
+        fit: StackFit.expand,
+        children: [
+          child,
+          PixelPerfectGridOverlay(
             visible: true,
             columns: columnCount,
-            child: wrapped,
-          )
-        : wrapped;
+            child: const SizedBox.shrink(),
+          ),
+          //_GridOverlay(columns: columnCount),
+        ],
+      );
+    }
 
-    return WidgetsApp(
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: (settings) => PageRouteBuilder(
-        pageBuilder: (context, animation, secondaryAnimation) => content,
-      ),
-      builder: (context, widget) {
-        return Stack(
-          fit: StackFit.expand,
-          clipBehavior: Clip.none,
-          children: [
-            if (widget != null) Positioned.fill(child: widget),
-            if (debugBanner)
-              Positioned(
-                top: 20,
-                right: -52,
-                child: _DevelopmentBanner(version: version),
-              ),
-          ],
-        );
-      },
-      color: Colors.white,
-    );
+    if (debugBanner && kDebugMode) {
+      child = Banner(
+        message: 'DEBUG',
+        location: BannerLocation.topStart,
+        color: Colors.redAccent,
+        child: child,
+      );
+    }
+
+    return child;
   }
 }
+class _GridOverlay extends StatelessWidget {
+  const _GridOverlay({
+    required this.columns,
+  });
 
-class _DevelopmentBanner extends StatelessWidget {
-  final String version;
-  const _DevelopmentBanner({required this.version});
+  final int columns;
 
   @override
   Widget build(BuildContext context) {
-    bool showBanner = false;
-    assert(() {
-      showBanner = true;
-      return true;
-    }());
+    return IgnorePointer(
+      ignoring: true,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final width = constraints.maxWidth;
+          final columnWidth = width / columns;
 
-    if (!showBanner) return const SizedBox.shrink();
-
-    return Transform.rotate(
-      angle: math.pi / 4,
-      child: Container(
-        width: 160,
-        height: 28,
-        decoration: BoxDecoration(
-          // color: Colors.red,
-          gradient: const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [Colors.red, Colors.redAccent],
-          ),
-          borderRadius: BorderRadius.circular(3),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.2),
-              blurRadius: 6,
-              offset: const Offset(0, 2),
+          return CustomPaint(
+            painter: _GridPainter(
+              columns: columns,
+              columnWidth: columnWidth,
             ),
-          ],
-        ),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'DEV',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 10,
-                  letterSpacing: 1.5,
-                  height: 1.2,
-                ),
-              ),
-              Text(
-                version,
-                style: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.85),
-                  fontWeight: FontWeight.w500,
-                  fontSize: 8,
-                  letterSpacing: 0.5,
-                ),
-              ),
-            ],
-          ),
-        ),
+          );
+        },
       ),
     );
   }
 }
+class _GridPainter extends CustomPainter {
+  _GridPainter({
+    required this.columns,
+    required this.columnWidth,
+  });
+
+  final int columns;
+  final double columnWidth;
+
+  final Paint _paint = Paint()
+    ..color = Colors.red.withOpacity(0.2)
+    ..strokeWidth = 1;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    for (int i = 1; i < columns; i++) {
+      final x = columnWidth * i;
+      canvas.drawLine(
+        Offset(x, 0),
+        Offset(x, size.height),
+        _paint,
+      );
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _GridPainter oldDelegate) {
+    return oldDelegate.columns != columns ||
+        oldDelegate.columnWidth != columnWidth;
+  }
+}
+

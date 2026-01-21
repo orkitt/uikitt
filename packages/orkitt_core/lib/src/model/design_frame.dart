@@ -46,4 +46,5 @@ class DesignFrame {
   ); // Full HD desktop
 
   /// You can add custom frames as per your app’s target devices or design specs.
+ bool get isValid => width > 0 && height > 0;
 }

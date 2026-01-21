@@ -20,8 +20,10 @@ dependencies:
   flutter:
     sdk: flutter
   boxy: ^2.2.2
-  orkitt_core: ^0.0.1 
-  orkitt_foundation: ^1.0.0
+  orkitt_core: 
+    # path: ../orkitt_core 
+  orkitt_foundation: 
+   # path: ../orkitt_foundation
 
 dev_dependencies:
   flutter_test:

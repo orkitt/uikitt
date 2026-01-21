@@ -25,4 +25,7 @@ extension ContextTextStyles on BuildContext {
   TextStyle get displayLarge => textTheme.displayLarge!;
   TextStyle get displayMedium => textTheme.displayMedium!;
   TextStyle get displaySmall => textTheme.displaySmall!;
+
+  // Access to the full TextTheme
+  
 }

@@ -14,11 +14,11 @@ class AppTheme extends ThemeManager {
 
   @override
   ThemeData get lightTheme =>
-      ThemeBuilder.build(AppLightColors(), typography: AppFonts());
+      ThemeBuilder.build(AppLightColors());
 
   @override
   ThemeData get darkTheme =>
-      ThemeBuilder.build(AppDarkColors(), typography: AppFonts());
+      ThemeBuilder.build(AppDarkColors());
 
   /// Load theme from shared preferences
   Future<void> _loadThemeFromPrefs() async {

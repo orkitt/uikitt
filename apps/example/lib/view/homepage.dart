@@ -37,6 +37,7 @@ class WalletXHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ComposeBox size = ComposeBox(849, 393);
     return Scaffold(
       appBar: customAppBar(context, child: _buildHeader(context)),
       body: SafeArea(
@@ -45,7 +46,37 @@ class WalletXHomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              OrkittLogo().center(),
+
+              // Experimental Smart Unit Container
+              // Uses min and max values to adapt to screen size
+              // Will be released in future versions
+              Container(
+                width: 100.smart(minValue: 80, maxValue: 300),
+                height: 50.smart(),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.smart()),
+                  color: Colors.blue,
+                ),
+                child: Center(
+                  child: Text(
+                    "Smart Container",
+                    style: TextStyle(
+                      fontSize: 16.smartFont(fontMultiplier: 1.1),
+                    ),
+                  ),
+                ),
+              ),
+
+              Container(
+                height: size.h(100),
+                width: size.w(100),
+                color: Colors.red,
+              ),
+
+              24.s,
+              Container(height: 100.w, width: 100.w, color: Colors.red),
+
+              //OrkittLogo().center(),
               SizedBox(height: 20.h),
               const BalanceCard(),
               SizedBox(height: 28.h),
@@ -80,13 +111,13 @@ class WalletXHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text("Orkitt", style: context.titleMedium.bold),
-         
+
           Consumer(
             builder: (_, WidgetRef ref, __) {
               final manager = ref.watch(themeProvider);
               return UiThemeSwitch(manager: manager);
             },
-          ).circular(color: context.surfaceElevated, radius: 24),
+          ).circular(color: context.surfaceElevated, radius: 24.r),
         ],
       ),
     );

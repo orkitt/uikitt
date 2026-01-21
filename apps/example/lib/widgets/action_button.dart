@@ -12,8 +12,8 @@ class ActionButton extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 60.w,
-          width: 60.w,
+          height: 48.sq,
+          width: 48.sq,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20.r),
             color: context.surfaceElevated,
