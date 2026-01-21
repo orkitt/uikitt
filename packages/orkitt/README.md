@@ -1,13 +1,7 @@
 ![Logo Image](https://raw.githubusercontent.com/orkitt/uikit/master/images/brand_sm.png)
 
-![Flutter](https://img.shields.io/badge/Flutter-3.38.3-blue?logo=flutter&logoColor=white)![Dart](https://img.shields.io/badge/Dart-3.8.0-blue?logo=dart&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT.0-green)
-![Version](https://img.shields.io/badge/Version-1.1.0-green)
-![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
-![Issues](https://img.shields.io/github/issues/orkitt/uikit)
-![Forks](https://img.shields.io/github/forks/orkitt/uikit)
-![Stars](https://img.shields.io/github/stars/orkitt/uikit)
-![Contributors](https://img.shields.io/github/contributors/orkitt/uikit)
+![Flutter](https://img.shields.io/badge/Flutter-3.38.5-blue?logo=flutter&logoColor=white)
+![Orkitt](https://img.shields.io/badge/Orkitt-1.1.3-green)
 
 # 🪶 Orkitt UI Framework
 
@@ -49,7 +43,6 @@ Initialize the framework globally to enable responsive scaling, orientation hand
       gridCount: 12, // Default grid layout (for responsive spacing)
       enableDebugLogging: true, // Logs device metrics & scaling
       errorScreen:  ErrorScreen.sifi, // Custom global error view
-      version: '2.0.0', // To show on Development Banner
       appBuilder: (Composer layout) => const MaterialApp(), //Your main material app 
     );
 ```

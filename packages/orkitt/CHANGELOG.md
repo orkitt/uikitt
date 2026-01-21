@@ -1,9 +1,15 @@
-# 1.1.2+1
+# 1.1.3+1
 
-- Added Major languages
-- Fix: initilaization
-- Fix .sp extensions
-  
+- Introduced unified smart scaling unit (`.scale`) for size, radius, and layout
+- Added separate font scaling with independent multiplier
+- Orientation-aware scaling for landscape and large screens
+- Dynamic design-frame detection for tablet/desktop
+- Optional aspect-ratio aware scaling logic
+- Support custom scaling curves for ultra-large (4K+) displays
+- Improved core scale initialization reliability
+- Refactored responsive utilities for production stability
+- Bumped orkitt_core to v0.0.4+1 (API stabilized, v2.0 ready)
+
 ## v1.1.0 
 
 ### Added
