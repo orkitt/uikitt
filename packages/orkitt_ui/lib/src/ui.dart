@@ -3,6 +3,7 @@ library orkitt_ui;
 // ───────────────── Components ─────────────────
 export 'components/button_ui.dart';
 export 'components/input_ui.dart';
+export 'components/orkitt_input.dart';
 
 // ───────────────── Avatar ─────────────────
 export 'ui/avater/ui_avatar_circle.dart';

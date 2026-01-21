@@ -1,6 +1,6 @@
 name: orkitt_ui
 description: "UI component library for the Orkitt ecosystem.Provides reusable widgets, UI helpers, decorations, extensions,and design utilities for building consistent Flutter interfaces"
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/orkitt/uikit
 repository: https://github.com/orkitt/uikit
 issue_tracker: https://github.com/orkitt/uikit/issues
