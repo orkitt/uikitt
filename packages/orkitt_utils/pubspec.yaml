@@ -1,6 +1,6 @@
 name: orkitt_utils
 description: "Utility package for the Orkitt ecosystem. Includes Dart and Flutter extensions, helper functions, formatters, validators, and commonly used utilities to speed up development."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/orkitt/uikit
 repository: https://github.com/orkitt/uikit
 issue_tracker: https://github.com/orkitt/uikit/issues
