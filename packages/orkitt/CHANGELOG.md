@@ -1,3 +1,7 @@
+# 1.2.0
+
+- Added service  utils
+  
 # 1.1.3+1
 
 - Introduced unified smart scaling unit (`.scale`) for size, radius, and layout
