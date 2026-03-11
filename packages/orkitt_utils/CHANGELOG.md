@@ -1,5 +1,6 @@
 
-# 0.0.1
+# 0.0.2
+- added service class
 
 - Initial release
 - Added new string and list extensions
