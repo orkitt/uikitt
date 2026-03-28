@@ -1,8 +1,8 @@
 import 'package:example/core/colors.dart';
-import 'package:example/core/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/legacy.dart';
-import 'package:orkitt/orkitt.dart';
+import 'package:orkitt/core.dart';
+import 'package:orkitt/utils.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AppTheme extends ThemeManager {
@@ -13,12 +13,10 @@ class AppTheme extends ThemeManager {
   }
 
   @override
-  ThemeData get lightTheme =>
-      ThemeBuilder.build(AppLightColors());
+  ThemeData get lightTheme => ThemeBuilder.build(AppLightColors());
 
   @override
-  ThemeData get darkTheme =>
-      ThemeBuilder.build(AppDarkColors());
+  ThemeData get darkTheme => ThemeBuilder.build(AppDarkColors());
 
   /// Load theme from shared preferences
   Future<void> _loadThemeFromPrefs() async {

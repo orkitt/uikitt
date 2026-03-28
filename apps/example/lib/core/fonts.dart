@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orkitt/orkitt.dart';
+import 'package:orkitt/core.dart';
 
 class AppFonts extends BrandTypo {
   @override

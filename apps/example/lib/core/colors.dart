@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:orkitt/orkitt.dart';
+import 'package:orkitt/core.dart';
 
 /// ==============================
 /// ☀️ Orkitt Light Theme

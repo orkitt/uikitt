@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orkitt/orkitt.dart';
+import 'package:orkitt/core.dart';
 
 class BalanceCard extends StatelessWidget {
   const BalanceCard({super.key});
@@ -19,7 +19,7 @@ class BalanceCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(24.r),
         boxShadow: [
           BoxShadow(
-            color: Colors.blueAccent.withValues(alpha:0.25),
+            color: Colors.blueAccent.withValues(alpha: 0.25),
             blurRadius: 15.r,
             offset: const Offset(0, 8),
           ),
@@ -30,10 +30,7 @@ class BalanceCard extends StatelessWidget {
         children: [
           Text(
             "Total Balance",
-            style: GoogleFonts.inter(
-              color: Colors.white70,
-              fontSize: 14.sp,
-            ),
+            style: GoogleFonts.inter(color: Colors.white70, fontSize: 14.sp),
           ),
           SizedBox(height: 6.h),
           Text(

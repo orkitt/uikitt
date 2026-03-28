@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:orkitt/orkitt.dart';
+import 'package:orkitt/core.dart';
+import 'package:orkitt/ui.dart';
+import 'package:orkitt/utils.dart';
 import '../widgets/balance_card.dart';
 import '../widgets/action_button.dart';
 import '../widgets/transaction_tile.dart';
@@ -46,7 +48,6 @@ class WalletXHomePage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               // Experimental Smart Unit Container
               // Uses min and max values to adapt to screen size
               // Will be released in future versions

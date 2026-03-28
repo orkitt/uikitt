@@ -1,7 +1,7 @@
 name: orkitt
 description: A professional Flutter UIKit by Orkitt Studio — designed to accelerate app development through responsive design, modular components, and brand-driven theming. Build scalable, beautiful, and consistent interfaces with less boilerplate.
 #publish_to: none
-version: 1.2.0
+version: 1.2.1
 homepage: https://github.com/orkitt/uikit
 repository: https://github.com/orkitt/uikit
 issue_tracker: https://github.com/orkitt/uikit/issues

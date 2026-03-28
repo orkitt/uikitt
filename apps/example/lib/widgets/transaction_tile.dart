@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orkitt/orkitt.dart';
+import 'package:orkitt/core.dart';
 
 class TransactionTile extends StatelessWidget {
   final IconData icon;
@@ -51,12 +51,7 @@ class TransactionTile extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 4.h),
-                Text(
-                  date,
-                  style: GoogleFonts.inter(
-                    fontSize: 12.sp,
-                  ),
-                ),
+                Text(date, style: GoogleFonts.inter(fontSize: 12.sp)),
               ],
             ),
           ),

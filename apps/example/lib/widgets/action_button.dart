@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:orkitt/orkitt.dart';
+import 'package:orkitt/core.dart';
 
 class ActionButton extends StatelessWidget {
   final IconData icon;
@@ -21,12 +21,7 @@ class ActionButton extends StatelessWidget {
           child: Icon(icon, size: 24.sp),
         ),
         SizedBox(height: 8.h),
-        Text(
-          label,
-          style: GoogleFonts.inter(
-            fontSize: 12.sp,
-          ),
-        ),
+        Text(label, style: GoogleFonts.inter(fontSize: 12.sp)),
       ],
     );
   }

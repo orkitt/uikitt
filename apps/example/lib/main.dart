@@ -1,9 +1,8 @@
 import 'package:example/provider/theme_provider.dart';
 import 'package:example/view/homepage.dart';
-import 'package:example/widgets/global_error.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:orkitt/orkitt.dart';
+import 'package:orkitt/core.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,8 +27,7 @@ class MyApp extends StatelessWidget {
       enableDebugLogging: true, // Logs device metrics & scaling
       errorScreen: ErrorScreen.dessert, // Custom global error view
       appBuilder: (layout) {
-        return  OrkittAppDemo(
-        );
+        return OrkittAppDemo();
       },
     );
   }

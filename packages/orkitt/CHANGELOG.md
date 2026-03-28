@@ -1,6 +1,7 @@
-# 1.2.0
+# 1.2.1
 
 - Added service  utils
+- Improve partial importing
   
 # 1.1.3+1
 
