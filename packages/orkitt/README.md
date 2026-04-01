@@ -1,4 +1,4 @@
-![Logo Image](https://raw.githubusercontent.com/orkitt/uikit/master/images/brand_sm.png)
+![Logo Image](https://raw.githubusercontent.com/orkitt/uikit/master/images/orkitt_umbrella.png)
 
 ![Flutter](https://img.shields.io/badge/Flutter-3.38.5-blue?logo=flutter&logoColor=white)
 ![Orkitt](https://img.shields.io/badge/Orkitt-1.1.3-green)
